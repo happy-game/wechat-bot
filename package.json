@@ -1,0 +1,27 @@
+{
+  "name": "wechat-bot",
+  "version": "1.0.0",
+  "description": "基于wechaty实现的微信机器人",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happy-game/wechat-bot.git"
+  },
+  "author": "liqi xiao",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/happy-game/wechat-bot/issues"
+  },
+  "homepage": "https://github.com/happy-game/wechat-bot#readme",
+  "dependencies": {
+    "wechaty": "^1.20.2",
+    "qrcode-terminal": "^0.12.0",
+    "wechaty-cqrs": "^0.7.5",
+    "wechaty-puppet-wechat": "^1.18.4"
+  }
+}

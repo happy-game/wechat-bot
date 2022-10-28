@@ -10,7 +10,8 @@ import qrcodeTerminal from 'qrcode-terminal'
 // import { Message } from 'wechaty-puppet/types'
 
 // self defined
-import { onMessage } from './on-message.js'
+import { onMessage, setUpTimedTask } from './on-message.js'
+import { onFriendship} from './on-friend.js'
 
 const welcome = `
 =============== Powered by Wechaty ===============
@@ -37,7 +38,7 @@ function onScan (qrcode, status) {
 }
 
 const bot = WechatyBuilder.build({
-  name: 'puppet-wechat',
+  name: 'happy',
   puppetOptions: {
     uos: true  // 开启uos协议
   },
@@ -54,6 +55,7 @@ bot
   .on('login', async function (user) {
     log.info('Bot', `${user.name()} logined`)
     await this.say(`wechaty logined`)
+    setUpTimedTask(bot)
   })
 
   .on('logout',     user => log.info('Bot', `${user.name()} logouted`))
@@ -65,3 +67,4 @@ bot
   
   .start()
   .catch(e => console.error(e))
+

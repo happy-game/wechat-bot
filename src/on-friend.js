@@ -48,3 +48,7 @@ export async function onFriendship (
     console.info(e)
   }
 }
+
+function setUpTimedTask(){ // 启动定时任务
+  
+}

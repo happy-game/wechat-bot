@@ -1,4 +1,5 @@
-const crypto = require('crypto');
+// const crypto = require('crypto');
+import * as crypto from 'crypto';
 
 function sha256(message, secret = '', encoding) {
     const hmac = crypto.createHmac('sha256', secret)

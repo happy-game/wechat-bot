@@ -36,6 +36,7 @@ function onScan (qrcode, status) {
     log.info('StarterBot', 'onScan: %s(%s)', ScanStatus[status], status)
   }
 }
+// 频率
 
 const bot = WechatyBuilder.build({
   name: 'happy',
@@ -45,12 +46,7 @@ const bot = WechatyBuilder.build({
   puppet: 'wechaty-puppet-wechat',
 })
 
-bot
-  // .on('scan', (qrcode, status) => {
-  //   qrcodeTerminal.generate(qrcode)
-  //   console.info(`${qrcode}\n[${status}] Scan QR Code in above url to login: `)
-  // })
-  .on('scan', onScan)
+bot.on('scan', onScan)
 
   .on('login', async function (user) {
     log.info('Bot', `${user.name()} logined`)
@@ -58,7 +54,10 @@ bot
     setUpTimedTask(bot)
   })
 
-  .on('logout',     user => log.info('Bot', `${user.name()} logouted`))
+  .on('logout',     user => {
+    log.info('Bot', `${user.name()} logouted`)
+    process.exit(1)
+  })
   .on('error',      error => log.info('Bot', 'error: %s', error))
 
   .on('message',    onMessage)

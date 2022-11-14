@@ -1,0 +1,70 @@
+[
+    {
+        "name": "给小王发送天气",
+        "description": "给小王发送天气",
+        "enabled": true,
+        "frequency": "24 * 60 * 60 * 1000",
+        "time": "0000-00-00 08:01:00",
+        "action": "send",
+        "to": "小王",
+        "type": "api",
+        "api":{
+            "name":"天行天气",
+            "url":"http://api.tianapi.com/tianqi/index",
+            "mode":"get",
+            "params":{
+                "key":"3ad4ee224be1302f3c638a4086664a34",
+                "city":"101200101",
+                "type":"1"
+            }
+        }
+    },
+    {
+        "name": "给小王发送油腻情话",
+        "description": "给小王发送天气",
+        "enabled": true,
+        "frequency": "24 * 60 * 60 * 1000",
+        "time": "0000-00-00 08:01:00",
+        "action": "send",
+        "to": "小王",
+        "type": "api",
+        "api":{
+            "name":"一句情话",
+            "url":"https://api.vvhan.com/api/love",
+            "mode":"get",
+            "params":{
+
+            }
+        }
+    },
+    {
+        "name": "给小王发送图片",
+        "description": "给小王发送天气",
+        "enabled": true,
+        "frequency": "24 * 60 * 60 * 1000",
+        "time": "0000-00-00 08:02:00",
+        "action": "send",
+        "to": "小王",
+        "type": "api",
+        "api":{
+            "name":"图片",
+            "url":"https://api.vvhan.com/api/bing",
+            "mode":"get",
+            "params":{
+                "type":"json",
+                "rand":"sj"
+            }
+        }
+    },
+    {
+        "name": "给自己确定活性",
+        "description": "给小王发送天气",
+        "enabled": true,
+        "frequency": " 1000 * 60 * 30",
+        "time": "now",
+        "action": "send",
+        "to": "早安",
+        "type": "text",
+        "content": "我还活着"
+    }
+]

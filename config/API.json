@@ -1,0 +1,23 @@
+[
+    {
+        "tag":"天行天气",
+        "url":"http://api.tianapi.com/tianqi/index",
+        "mode":"get",
+        "params":{
+            "key":"3ad4ee224be1302f3c638a4086664a34",
+            "city":"101200101",
+            "type":"1"
+        },
+        "description":"天行天气"
+    },
+    {
+        "tag":"和风天气",
+        "url":"https://devapi.qweather.com/v7/weather/now?",
+        "mode":"get",
+        "params":{
+            "location":"114.36299,30.51258",
+            "key":"db5770719f9d4663ba481d497f671c98"
+        },
+        "description":"和风实时天气"
+    }
+]

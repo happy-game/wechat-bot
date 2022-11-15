@@ -1,10 +1,10 @@
 [
     {
         "name": "给小王发送天气",
-        "description": "给小王发送天气",
+        "description": "",
         "enabled": true,
         "frequency": "24 * 60 * 60 * 1000",
-        "time": "0000-00-00 08:01:00",
+        "time": "0000-00-00 07:30:00",
         "action": "send",
         "to": "小王",
         "type": "api",
@@ -21,10 +21,10 @@
     },
     {
         "name": "给小王发送油腻情话",
-        "description": "给小王发送天气",
+        "description": "",
         "enabled": true,
         "frequency": "24 * 60 * 60 * 1000",
-        "time": "0000-00-00 08:01:00",
+        "time": "0000-00-00 23:59:00",
         "action": "send",
         "to": "小王",
         "type": "api",
@@ -39,10 +39,10 @@
     },
     {
         "name": "给小王发送图片",
-        "description": "给小王发送天气",
+        "description": "",
         "enabled": true,
         "frequency": "24 * 60 * 60 * 1000",
-        "time": "0000-00-00 08:02:00",
+        "time": "0000-00-00 07:30:00",
         "action": "send",
         "to": "小王",
         "type": "api",
@@ -66,5 +66,16 @@
         "to": "早安",
         "type": "text",
         "content": "我还活着"
+    },
+    {
+        "name": "晚安",
+        "description": "",
+        "enabled": true,
+        "frequency": "24 * 60 * 60 * 1000",
+        "time": "0000-00-00 23:59:00",
+        "action": "send",
+        "to": "小王",
+        "type": "text",
+        "content": "晚安晚安小王！记得早点睡觉哦！"
     }
 ]

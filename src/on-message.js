@@ -4,8 +4,9 @@ import * as dayjs from 'dayjs'
 import * as customParseFormat from 'dayjs/plugin/customParseFormat.js'
 import * as fs from 'fs'
 import  axios from 'axios'
-import { setInterval } from 'timers/promises'
+// import { setInterval } from 'timers/promises'
 import {FileBox} from 'file-box'
+
 // import { Contact } from 'wechaty/src/mods/users'
 // import { speechRecognizer } from './SpeechRecognition.js'
 
@@ -16,7 +17,6 @@ const MODE = {
   ACCOUNT: 2,
   COLLECT: 3,
 }
-
 let file = null;
 let name = null;
 let mode = MODE.NORMAL;
@@ -79,12 +79,12 @@ function setDefaultTime(date) {
   dateObj.setFullYear(year || dateObj.getFullYear())
   dateObj.setMonth(month  || dateObj.getMonth())
   dateObj.setDate(day || dateObj.getDate())
-  console.log('hour', hour)
+  // console.log('hour', hour)
   dateObj.setHours(hour || dateObj.getHours())
-  console.log('dateObj', dateObj)
+  // console.log('dateObj', dateObj)
   dateObj.setMinutes(minute || dateObj.getMinutes())
   // dateObj.setSeconds(second || dateObj.getSeconds())
-  console.log(dateObj)
+  // console.log(dateObj)
   return dateObj
 }
 
@@ -93,7 +93,7 @@ function sleep (time) {
 }
 
 async function test(fun,frequency,task){
-  for(let i=0;i<10;i++){
+  for(let i=0;i<1000;i++){
     await sleep(frequency).then(()=>{})
     fun(task)
   }
@@ -113,16 +113,16 @@ export async function setUpTimedTask(bot){ // 启动定时任务
     if(task.time == 'now'){
       date = new Date()
     }else{
-    date = setDefaultTime(task.time)
+      date = setDefaultTime(task.time)
     }
     let frequency = eval(task.frequency)
     // 计算最早启动时间
     let now = new Date()
-    let start =new Date(date.getTime() + frequency) 
-    console.log(start,'\t\t', now)
+    let start =new Date(date.getTime()) 
+    console.log(start.toLocaleString(),'\t\t', now.toLocaleString())
     start = start.getTime() - now.getTime()
     if(start < 0){
-      start = 1000
+      start += frequency
     }
 
     // 读取联系人
@@ -176,8 +176,8 @@ export async function setUpTimedTask(bot){ // 启动定时任务
         contact.say(task.content)
       }
     }
-      console.log('send',task.name,'to',contact.name(),'at',date,'every',frequency,'ms')
-      console.log('start in',start,'ms')
+      console.log('send',task.name,'to',contact.name(),'at',date.toLocaleString(),frequency/(1000 * 60 * 60),'hours')
+      console.log('start after',start/(1000 * 60 * 60),'hours')
       await sleep(start).then();
       await fun(task)
       console.log('第一个结束')
